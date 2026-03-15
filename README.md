@@ -1,0 +1,1 @@
+This repo is used for testing data transformations in snowflake using dbt. Also, semantic view is created on top to test Snowflake Cortex features.
