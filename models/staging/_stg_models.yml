@@ -1,0 +1,58 @@
+models:
+  - name: stg_customers
+    description: "Staged customer data with cleaned column names"
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: "Staged orders data with cleaned column names"
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_lineitems
+    description: "Staged line item data with cleaned column names"
+    columns:
+      - name: order_key
+        tests:
+          - not_null
+
+  - name: stg_parts
+    description: "Staged parts data with cleaned column names"
+    columns:
+      - name: part_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_suppliers
+    description: "Staged supplier data with cleaned column names"
+    columns:
+      - name: supplier_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_part_suppliers
+    description: "Staged part-supplier relationship data"
+
+  - name: stg_nations
+    description: "Staged nation data with cleaned column names"
+    columns:
+      - name: nation_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_regions
+    description: "Staged region data with cleaned column names"
+    columns:
+      - name: region_key
+        tests:
+          - unique
+          - not_null

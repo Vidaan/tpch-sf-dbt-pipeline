@@ -1,0 +1,11 @@
+tpch_sf_dbt_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake 
+      account: QX86654
+      user: TESTSNOWFLAKE
+      database: DBT_DB
+      schema: DBT_SCH
+      warehouse: COMPUTE_WH
+      threads: 4
