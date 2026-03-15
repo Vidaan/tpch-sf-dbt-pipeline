@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension with geographic hierarchy"
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_suppliers
+    description: "Supplier dimension with geographic hierarchy"
+    columns:
+      - name: supplier_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_parts
+    description: "Parts dimension table"
+    columns:
+      - name: part_key
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_orders
+    description: "Orders fact table with aggregated line items"
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_order_items
+    description: "Order line items fact table with enriched dimensions"
