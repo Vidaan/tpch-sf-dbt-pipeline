@@ -1,0 +1,32 @@
+
+  
+    
+
+        create or replace transient table DBT_DB.DBT_SCH.dim_suppliers
+         as
+        (with suppliers as (
+    select * from DBT_DB.DBT_SCH.stg_suppliers
+),
+
+nations as (
+    select * from DBT_DB.DBT_SCH.stg_nations
+),
+
+regions as (
+    select * from DBT_DB.DBT_SCH.stg_regions
+)
+
+select
+    s.supplier_key,
+    s.supplier_name,
+    s.address,
+    s.phone,
+    s.account_balance,
+    n.nation_name,
+    r.region_name
+from suppliers s
+left join nations n on s.nation_key = n.nation_key
+left join regions r on n.region_key = r.region_key
+        );
+      
+  
