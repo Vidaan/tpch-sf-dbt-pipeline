@@ -1,0 +1,23 @@
+name: 'tpch_sf_dbt_pipeline'
+
+config-version: 2
+version: '1.0.0'
+
+profile: 'tpch_sf_dbt_pipeline'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  tpch_sf_dbt_pipeline: 
+    marts:
+      +materialized: table
+    staging:
+      +materialized: view
+    semantic:
+      +materialized: ephemeral

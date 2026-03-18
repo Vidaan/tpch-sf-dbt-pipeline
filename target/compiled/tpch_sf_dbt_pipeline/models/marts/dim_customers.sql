@@ -1,11 +1,11 @@
 with customers as (
-    select * from {{ref('stg_customers')}}
+    select * from DBT_DB.DBT_SCH.stg_customers
 )
 , nations as (
-    select * from {{ref('stg_nations')}}
+    select * from DBT_DB.DBT_SCH.stg_nations
 )
 , regions as (
-    select * from {{ref('stg_regions')}}
+    select * from DBT_DB.DBT_SCH.stg_regions
 )
 
 select

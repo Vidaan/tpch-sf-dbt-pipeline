@@ -8,4 +8,5 @@ tpch_sf_dbt_pipeline:
       database: DBT_DB
       schema: DBT_SCH
       warehouse: COMPUTE_WH
+      role: ACCOUNTADMIN
       threads: 4
