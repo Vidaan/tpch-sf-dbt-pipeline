@@ -7810,3 +7810,480 @@ COMMIT
 [0m18:27:19.938588 [debug] [Dummy-1   ]: Resource report: {"command_name": "snapshot", "command_success": true, "command_wall_clock_time": 6.657257, "process_in_blocks": "0", "process_kernel_time": 1.13, "process_mem_max_rss": "454712", "process_out_blocks": "0", "process_user_time": 5.52}
 [0m18:27:19.939279 [debug] [Dummy-1   ]: Command `cli snapshot` succeeded at 18:27:19.939006 after 6.66 seconds
 [0m18:27:19.939824 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 13:38:35.289089 | 51fdcbd7-feca-4f42-93b7-fe11e525fb3c ==============================
+[0m13:38:35.289089 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m13:38:35.290152 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/tmp/dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt ', 'introspect': 'True', 'static_parser': 'True', 'target_path': '/tmp/dbt/target/', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m13:38:35.657401 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m13:38:36.210466 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m13:38:36.428928 [info ] [Dummy-1   ]: Unable to do partial parsing because a project config has changed
+[0m13:38:38.493310 [warn ] [Dummy-1   ]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.tpch_sf_dbt_pipeline.semantic
+[0m13:38:38.774910 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m13:38:38.777421 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m13:38:38.831524 [info ] [Dummy-1   ]: Found 13 models, 21 data tests, 8 sources, 475 macros
+[0m13:38:38.835085 [info ] [Dummy-1   ]: 
+[0m13:38:38.835707 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m13:38:38.836182 [info ] [Dummy-1   ]: 
+[0m13:38:38.836977 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m13:38:38.844788 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DBT_DB'
+[0m13:38:38.948873 [debug] [ThreadPool]: Using snowflake connection "list_DBT_DB"
+[0m13:38:38.949514 [debug] [ThreadPool]: On list_DBT_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "connection_name": "list_DBT_DB"} */
+show terse schemas in database DBT_DB
+    limit 10000
+[0m13:38:38.950019 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:38:40.078939 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.129 seconds
+[0m13:38:40.083898 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DBT_DB_DBT_SCH'
+[0m13:38:40.100559 [debug] [ThreadPool]: Using snowflake connection "list_DBT_DB_DBT_SCH"
+[0m13:38:40.101154 [debug] [ThreadPool]: On list_DBT_DB_DBT_SCH: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "connection_name": "list_DBT_DB_DBT_SCH"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m13:38:40.101640 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:38:40.985699 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.884 seconds
+[0m13:38:40.991564 [debug] [ThreadPool]: Using snowflake connection "list_DBT_DB_DBT_SCH"
+[0m13:38:40.992198 [debug] [ThreadPool]: On list_DBT_DB_DBT_SCH: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "connection_name": "list_DBT_DB_DBT_SCH"} */
+show objects in DBT_DB.DBT_SCH
+    limit 10000
+    
+;
+[0m13:38:41.360172 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 0.367 seconds
+[0m13:38:41.363270 [debug] [ThreadPool]: Using snowflake connection "list_DBT_DB_DBT_SCH"
+[0m13:38:41.363870 [debug] [ThreadPool]: On list_DBT_DB_DBT_SCH: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "connection_name": "list_DBT_DB_DBT_SCH"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m13:38:41.530380 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.166 seconds
+[0m13:38:41.546283 [debug] [Thread-2 (]: Began running node model.tpch_sf_dbt_pipeline.stg_customers
+[0m13:38:41.547001 [debug] [Thread-3 (]: Began running node model.tpch_sf_dbt_pipeline.stg_lineitems
+[0m13:38:41.547718 [debug] [Thread-4 (]: Began running node model.tpch_sf_dbt_pipeline.stg_nations
+[0m13:38:41.548428 [debug] [Thread-5 (]: Began running node model.tpch_sf_dbt_pipeline.stg_orders
+[0m13:38:41.549292 [info ] [Thread-2 (]: 1 of 13 START sql view model DBT_SCH.stg_customers ............................. [RUN]
+[0m13:38:41.550136 [info ] [Thread-3 (]: 2 of 13 START sql view model DBT_SCH.stg_lineitems ............................. [RUN]
+[0m13:38:41.550919 [info ] [Thread-4 (]: 3 of 13 START sql view model DBT_SCH.stg_nations ............................... [RUN]
+[0m13:38:41.551724 [info ] [Thread-5 (]: 4 of 13 START sql view model DBT_SCH.stg_orders ................................ [RUN]
+[0m13:38:41.552532 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DBT_DB_DBT_SCH, now model.tpch_sf_dbt_pipeline.stg_customers)
+[0m13:38:41.553211 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DBT_DB, now model.tpch_sf_dbt_pipeline.stg_lineitems)
+[0m13:38:41.553982 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tpch_sf_dbt_pipeline.stg_nations'
+[0m13:38:41.554728 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tpch_sf_dbt_pipeline.stg_orders'
+[0m13:38:41.555374 [debug] [Thread-2 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_customers
+[0m13:38:41.555971 [debug] [Thread-3 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_lineitems
+[0m13:38:41.556543 [debug] [Thread-4 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_nations
+[0m13:38:41.557117 [debug] [Thread-5 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_orders
+[0m13:38:41.568946 [debug] [Thread-2 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_customers"
+[0m13:38:41.574523 [debug] [Thread-3 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_lineitems"
+[0m13:38:41.580024 [debug] [Thread-4 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_nations"
+[0m13:38:41.585588 [debug] [Thread-5 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_orders"
+[0m13:38:41.586961 [debug] [Thread-2 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_customers
+[0m13:38:41.588032 [debug] [Thread-3 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_lineitems
+[0m13:38:41.588735 [debug] [Thread-4 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_nations
+[0m13:38:41.674489 [debug] [Thread-3 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_lineitems"
+[0m13:38:41.657630 [debug] [Thread-2 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_customers"
+[0m13:38:41.605302 [debug] [Thread-5 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_orders
+[0m13:38:41.680421 [debug] [Thread-4 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_nations"
+[0m13:38:41.682635 [debug] [Thread-3 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_lineitems"
+[0m13:38:41.688037 [debug] [Thread-5 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_orders"
+[0m13:38:41.689553 [debug] [Thread-2 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_customers"
+[0m13:38:41.690627 [debug] [Thread-3 (]: On model.tpch_sf_dbt_pipeline.stg_lineitems: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_lineitems"} */
+create or replace   view DBT_DB.DBT_SCH.stg_lineitems
+  
+   as (
+    select
+    l_orderkey as order_key,
+    l_partkey as part_key,
+    l_suppkey as supplier_key,
+    l_linenumber as line_number,
+    l_quantity as quantity,
+    l_extendedprice as extended_price,
+    l_discount as discount,
+    l_tax as tax,
+    l_returnflag as return_flag,
+    l_linestatus as line_status,
+    l_shipdate as ship_date,
+    l_commitdate as commit_date,
+    l_receiptdate as receipt_date,
+    l_shipinstruct as ship_instructions,
+    l_shipmode as ship_mode,
+    l_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.lineitem
+  );
+[0m13:38:41.691798 [debug] [Thread-4 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_nations"
+[0m13:38:41.692795 [debug] [Thread-2 (]: On model.tpch_sf_dbt_pipeline.stg_customers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_customers"} */
+create or replace   view DBT_DB.DBT_SCH.stg_customers
+  
+   as (
+    select
+    c_custkey as customer_key,
+    c_name as customer_name,
+    c_address as address,
+    c_nationkey as nation_key,
+    c_phone as phone,
+    c_acctbal as account_balance,
+    c_mktsegment as market_segment,
+    c_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.customer
+  );
+[0m13:38:41.694127 [debug] [Thread-5 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_orders"
+[0m13:38:41.694718 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:38:41.695359 [debug] [Thread-4 (]: On model.tpch_sf_dbt_pipeline.stg_nations: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_nations"} */
+create or replace   view DBT_DB.DBT_SCH.stg_nations
+  
+   as (
+    select 
+    n_nationkey as nation_key,
+    n_name as nation_name,
+    n_regionkey as region_key,
+    n_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.nation
+  );
+[0m13:38:41.696002 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:38:41.696638 [debug] [Thread-5 (]: On model.tpch_sf_dbt_pipeline.stg_orders: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_orders"} */
+create or replace   view DBT_DB.DBT_SCH.stg_orders
+  
+   as (
+    select
+    o_orderkey as order_key,
+    o_custkey as customer_key,
+    o_orderstatus as order_status,
+    o_totalprice as total_price,
+    o_orderdate as order_date,
+    o_orderpriority as order_priority,
+    o_clerk as clerk,
+    o_shippriority as ship_priority,
+    o_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.orders
+  );
+[0m13:38:41.697406 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:38:41.698203 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m13:38:43.112420 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.414 seconds
+[0m13:38:43.149648 [info ] [Thread-5 (]: 4 of 13 OK created sql view model DBT_SCH.stg_orders ........................... [[32mSUCCESS 1[0m in 1.59s]
+[0m13:38:43.150658 [debug] [Thread-5 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_orders
+[0m13:38:43.151405 [debug] [Thread-5 (]: Began running node model.tpch_sf_dbt_pipeline.stg_part_suppliers
+[0m13:38:43.152334 [info ] [Thread-5 (]: 5 of 13 START sql view model DBT_SCH.stg_part_suppliers ........................ [RUN]
+[0m13:38:43.153060 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_orders, now model.tpch_sf_dbt_pipeline.stg_part_suppliers)
+[0m13:38:43.153668 [debug] [Thread-5 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_part_suppliers
+[0m13:38:43.159228 [debug] [Thread-5 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_part_suppliers"
+[0m13:38:43.160109 [debug] [Thread-5 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_part_suppliers
+[0m13:38:43.165664 [debug] [Thread-5 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_part_suppliers"
+[0m13:38:43.167085 [debug] [Thread-5 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_part_suppliers"
+[0m13:38:43.167752 [debug] [Thread-5 (]: On model.tpch_sf_dbt_pipeline.stg_part_suppliers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_part_suppliers"} */
+create or replace   view DBT_DB.DBT_SCH.stg_part_suppliers
+  
+   as (
+    select
+    ps_partkey as part_key,
+    ps_suppkey as supplier_key,
+    ps_availqty as available_quantity,
+    ps_supplycost as supply_cost,
+    ps_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.partsupp
+  );
+[0m13:38:43.168347 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m13:38:43.180100 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.483 seconds
+[0m13:38:43.183417 [info ] [Thread-4 (]: 3 of 13 OK created sql view model DBT_SCH.stg_nations .......................... [[32mSUCCESS 1[0m in 1.63s]
+[0m13:38:43.184334 [debug] [Thread-4 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_nations
+[0m13:38:43.185019 [debug] [Thread-4 (]: Began running node model.tpch_sf_dbt_pipeline.stg_parts
+[0m13:38:43.185855 [info ] [Thread-4 (]: 6 of 13 START sql view model DBT_SCH.stg_parts ................................. [RUN]
+[0m13:38:43.186533 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_nations, now model.tpch_sf_dbt_pipeline.stg_parts)
+[0m13:38:43.187092 [debug] [Thread-4 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_parts
+[0m13:38:43.192832 [debug] [Thread-4 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_parts"
+[0m13:38:43.193661 [debug] [Thread-4 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_parts
+[0m13:38:43.199064 [debug] [Thread-4 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_parts"
+[0m13:38:43.200045 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.504 seconds
+[0m13:38:43.200896 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.506 seconds
+[0m13:38:43.204597 [info ] [Thread-2 (]: 1 of 13 OK created sql view model DBT_SCH.stg_customers ........................ [[32mSUCCESS 1[0m in 1.65s]
+[0m13:38:43.205999 [debug] [Thread-4 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_parts"
+[0m13:38:43.209051 [info ] [Thread-3 (]: 2 of 13 OK created sql view model DBT_SCH.stg_lineitems ........................ [[32mSUCCESS 1[0m in 1.66s]
+[0m13:38:43.210012 [debug] [Thread-2 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_customers
+[0m13:38:43.210716 [debug] [Thread-4 (]: On model.tpch_sf_dbt_pipeline.stg_parts: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_parts"} */
+create or replace   view DBT_DB.DBT_SCH.stg_parts
+  
+   as (
+    select 
+    p_partkey as part_key,
+    p_name as part_name,
+    p_mfgr as manufacturer,
+    p_brand as brand,
+    p_type as part_type,
+    p_size as size,
+    p_container as container,
+    p_retailprice as retail_price,
+    p_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.part
+  );
+[0m13:38:43.211576 [debug] [Thread-3 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_lineitems
+[0m13:38:43.212292 [debug] [Thread-2 (]: Began running node model.tpch_sf_dbt_pipeline.stg_regions
+[0m13:38:43.213052 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:38:43.213708 [debug] [Thread-3 (]: Began running node model.tpch_sf_dbt_pipeline.stg_suppliers
+[0m13:38:43.214532 [info ] [Thread-2 (]: 7 of 13 START sql view model DBT_SCH.stg_regions ............................... [RUN]
+[0m13:38:43.215491 [info ] [Thread-3 (]: 8 of 13 START sql view model DBT_SCH.stg_suppliers ............................. [RUN]
+[0m13:38:43.216284 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_customers, now model.tpch_sf_dbt_pipeline.stg_regions)
+[0m13:38:43.216957 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_lineitems, now model.tpch_sf_dbt_pipeline.stg_suppliers)
+[0m13:38:43.217568 [debug] [Thread-2 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_regions
+[0m13:38:43.218153 [debug] [Thread-3 (]: Began compiling node model.tpch_sf_dbt_pipeline.stg_suppliers
+[0m13:38:43.226294 [debug] [Thread-2 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_regions"
+[0m13:38:43.232200 [debug] [Thread-3 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.stg_suppliers"
+[0m13:38:43.233910 [debug] [Thread-2 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_regions
+[0m13:38:43.234648 [debug] [Thread-3 (]: Began executing node model.tpch_sf_dbt_pipeline.stg_suppliers
+[0m13:38:43.240363 [debug] [Thread-2 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_regions"
+[0m13:38:43.246040 [debug] [Thread-3 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.stg_suppliers"
+[0m13:38:43.247684 [debug] [Thread-2 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_regions"
+[0m13:38:43.248529 [debug] [Thread-2 (]: On model.tpch_sf_dbt_pipeline.stg_regions: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_regions"} */
+create or replace   view DBT_DB.DBT_SCH.stg_regions
+  
+   as (
+    select 
+    r_regionkey as region_key,
+    r_name as region_name,
+    r_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.region
+  );
+[0m13:38:43.249719 [debug] [Thread-3 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.stg_suppliers"
+[0m13:38:43.250306 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:38:43.250965 [debug] [Thread-3 (]: On model.tpch_sf_dbt_pipeline.stg_suppliers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.stg_suppliers"} */
+create or replace   view DBT_DB.DBT_SCH.stg_suppliers
+  
+   as (
+    select
+    s_suppkey as supplier_key,
+    s_name as supplier_name,
+    s_address as address,
+    s_nationkey as nation_key,
+    s_phone as phone,
+    s_acctbal as account_balance,
+    s_comment as comment
+from SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.supplier
+  );
+[0m13:38:43.251792 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:38:44.469022 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.300 seconds
+[0m13:38:44.472979 [info ] [Thread-5 (]: 5 of 13 OK created sql view model DBT_SCH.stg_part_suppliers ................... [[32mSUCCESS 1[0m in 1.32s]
+[0m13:38:44.473950 [debug] [Thread-5 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_part_suppliers
+[0m13:38:44.503795 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.291 seconds
+[0m13:38:44.507242 [info ] [Thread-4 (]: 6 of 13 OK created sql view model DBT_SCH.stg_parts ............................ [[32mSUCCESS 1[0m in 1.32s]
+[0m13:38:44.508178 [debug] [Thread-4 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_parts
+[0m13:38:44.509103 [debug] [Thread-5 (]: Began running node model.tpch_sf_dbt_pipeline.dim_parts
+[0m13:38:44.509892 [info ] [Thread-5 (]: 9 of 13 START sql table model DBT_SCH.dim_parts ................................ [RUN]
+[0m13:38:44.510637 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_part_suppliers, now model.tpch_sf_dbt_pipeline.dim_parts)
+[0m13:38:44.511208 [debug] [Thread-5 (]: Began compiling node model.tpch_sf_dbt_pipeline.dim_parts
+[0m13:38:44.519096 [debug] [Thread-5 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.dim_parts"
+[0m13:38:44.519953 [debug] [Thread-5 (]: Began executing node model.tpch_sf_dbt_pipeline.dim_parts
+[0m13:38:44.544766 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.294 seconds
+[0m13:38:44.555175 [debug] [Thread-5 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.dim_parts"
+[0m13:38:44.558517 [info ] [Thread-2 (]: 7 of 13 OK created sql view model DBT_SCH.stg_regions .......................... [[32mSUCCESS 1[0m in 1.34s]
+[0m13:38:44.559692 [debug] [Thread-2 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_regions
+[0m13:38:44.560920 [debug] [Thread-5 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.dim_parts"
+[0m13:38:44.561995 [debug] [Thread-4 (]: Began running node model.tpch_sf_dbt_pipeline.dim_customers
+[0m13:38:44.562630 [debug] [Thread-5 (]: On model.tpch_sf_dbt_pipeline.dim_parts: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.dim_parts"} */
+create or replace transient table DBT_DB.DBT_SCH.dim_parts
+         as
+        (select
+    part_key,
+    part_name,
+    manufacturer,
+    brand,
+    part_type,
+    size,
+    container,
+    retail_price
+from DBT_DB.DBT_SCH.stg_parts
+        );
+[0m13:38:44.563407 [info ] [Thread-4 (]: 10 of 13 START sql table model DBT_SCH.dim_customers ........................... [RUN]
+[0m13:38:44.564073 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m13:38:44.564742 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_parts, now model.tpch_sf_dbt_pipeline.dim_customers)
+[0m13:38:44.565467 [debug] [Thread-4 (]: Began compiling node model.tpch_sf_dbt_pipeline.dim_customers
+[0m13:38:44.572313 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.320 seconds
+[0m13:38:44.572745 [debug] [Thread-4 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.dim_customers"
+[0m13:38:44.575950 [info ] [Thread-3 (]: 8 of 13 OK created sql view model DBT_SCH.stg_suppliers ........................ [[32mSUCCESS 1[0m in 1.36s]
+[0m13:38:44.577097 [debug] [Thread-3 (]: Finished running node model.tpch_sf_dbt_pipeline.stg_suppliers
+[0m13:38:44.577781 [debug] [Thread-4 (]: Began executing node model.tpch_sf_dbt_pipeline.dim_customers
+[0m13:38:44.578936 [debug] [Thread-2 (]: Began running node model.tpch_sf_dbt_pipeline.dim_suppliers
+[0m13:38:44.584754 [debug] [Thread-4 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.dim_customers"
+[0m13:38:44.585555 [info ] [Thread-2 (]: 11 of 13 START sql table model DBT_SCH.dim_suppliers ........................... [RUN]
+[0m13:38:44.586582 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_regions, now model.tpch_sf_dbt_pipeline.dim_suppliers)
+[0m13:38:44.588258 [debug] [Thread-4 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.dim_customers"
+[0m13:38:44.588863 [debug] [Thread-2 (]: Began compiling node model.tpch_sf_dbt_pipeline.dim_suppliers
+[0m13:38:44.589540 [debug] [Thread-4 (]: On model.tpch_sf_dbt_pipeline.dim_customers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.dim_customers"} */
+create or replace transient table DBT_DB.DBT_SCH.dim_customers
+         as
+        (with customers as (
+    select * from DBT_DB.DBT_SCH.stg_customers
+)
+, nations as (
+    select * from DBT_DB.DBT_SCH.stg_nations
+)
+, regions as (
+    select * from DBT_DB.DBT_SCH.stg_regions
+)
+
+select
+    c.customer_key,
+    c.customer_name,
+    c.address,
+    c.phone,
+    c.account_balance,
+    c.market_segment,
+    n.nation_name,
+    r.region_name
+from customers c
+left join nations n on c.nation_key = n.nation_key
+left join regions r on n.region_key = r.region_key
+        );
+[0m13:38:44.597599 [debug] [Thread-2 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.dim_suppliers"
+[0m13:38:44.598275 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:38:44.599325 [debug] [Thread-2 (]: Began executing node model.tpch_sf_dbt_pipeline.dim_suppliers
+[0m13:38:44.604799 [debug] [Thread-2 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.dim_suppliers"
+[0m13:38:44.606563 [debug] [Thread-2 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.dim_suppliers"
+[0m13:38:44.607234 [debug] [Thread-2 (]: On model.tpch_sf_dbt_pipeline.dim_suppliers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.dim_suppliers"} */
+create or replace transient table DBT_DB.DBT_SCH.dim_suppliers
+         as
+        (with suppliers as (
+    select * from DBT_DB.DBT_SCH.stg_suppliers
+),
+
+nations as (
+    select * from DBT_DB.DBT_SCH.stg_nations
+),
+
+regions as (
+    select * from DBT_DB.DBT_SCH.stg_regions
+)
+
+select
+    s.supplier_key,
+    s.supplier_name,
+    s.address,
+    s.phone,
+    s.account_balance,
+    n.nation_name,
+    r.region_name
+from suppliers s
+left join nations n on s.nation_key = n.nation_key
+left join regions r on n.region_key = r.region_key
+        );
+[0m13:38:44.607860 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:38:47.750985 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 3.187 seconds
+[0m13:38:47.751931 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 3.144 seconds
+[0m13:38:47.755243 [info ] [Thread-5 (]: 9 of 13 OK created sql table model DBT_SCH.dim_parts ........................... [[32mSUCCESS 1[0m in 3.24s]
+[0m13:38:47.758347 [info ] [Thread-2 (]: 11 of 13 OK created sql table model DBT_SCH.dim_suppliers ...................... [[32mSUCCESS 1[0m in 3.17s]
+[0m13:38:47.759284 [debug] [Thread-5 (]: Finished running node model.tpch_sf_dbt_pipeline.dim_parts
+[0m13:38:47.760118 [debug] [Thread-2 (]: Finished running node model.tpch_sf_dbt_pipeline.dim_suppliers
+[0m13:38:47.761211 [debug] [Thread-3 (]: Began running node model.tpch_sf_dbt_pipeline.fct_order_items
+[0m13:38:47.761973 [info ] [Thread-3 (]: 12 of 13 START sql table model DBT_SCH.fct_order_items ......................... [RUN]
+[0m13:38:47.762688 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.stg_suppliers, now model.tpch_sf_dbt_pipeline.fct_order_items)
+[0m13:38:47.763287 [debug] [Thread-3 (]: Began compiling node model.tpch_sf_dbt_pipeline.fct_order_items
+[0m13:38:47.769868 [debug] [Thread-3 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.fct_order_items"
+[0m13:38:47.770705 [debug] [Thread-3 (]: Began executing node model.tpch_sf_dbt_pipeline.fct_order_items
+[0m13:38:47.776030 [debug] [Thread-3 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.fct_order_items"
+[0m13:38:47.778283 [debug] [Thread-3 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.fct_order_items"
+[0m13:38:47.779031 [debug] [Thread-3 (]: On model.tpch_sf_dbt_pipeline.fct_order_items: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.fct_order_items"} */
+create or replace transient table DBT_DB.DBT_SCH.fct_order_items
+         as
+        (with lineitems as (
+    select * from DBT_DB.DBT_SCH.stg_lineitems
+),
+
+parts as (
+    select * from DBT_DB.DBT_SCH.dim_parts
+),
+
+suppliers as (
+    select * from DBT_DB.DBT_SCH.dim_suppliers
+)
+
+select
+    l.order_key,
+    l.line_number,
+    l.part_key,
+    p.part_name,
+    p.brand,
+    l.supplier_key,
+    s.supplier_name,
+    s.nation_name as supplier_nation,
+    s.region_name as supplier_region,
+    l.quantity,
+    l.extended_price,
+    l.discount,
+    l.tax,
+    l.extended_price * (1 - l.discount) as net_price,
+    l.extended_price * (1 - l.discount) * (1 + l.tax) as total_price,
+    l.return_flag,
+    l.line_status,
+    l.ship_date,
+    l.commit_date,
+    l.receipt_date,
+    l.ship_mode
+from lineitems l
+left join parts p on l.part_key = p.part_key
+left join suppliers s on l.supplier_key = s.supplier_key
+        );
+[0m13:38:47.779683 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:38:47.906960 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 3.309 seconds
+[0m13:38:47.910534 [info ] [Thread-4 (]: 10 of 13 OK created sql table model DBT_SCH.dim_customers ...................... [[32mSUCCESS 1[0m in 3.35s]
+[0m13:38:47.911490 [debug] [Thread-4 (]: Finished running node model.tpch_sf_dbt_pipeline.dim_customers
+[0m13:38:47.912381 [debug] [Thread-2 (]: Began running node model.tpch_sf_dbt_pipeline.fct_orders
+[0m13:38:47.913135 [info ] [Thread-2 (]: 13 of 13 START sql table model DBT_SCH.fct_orders .............................. [RUN]
+[0m13:38:47.913822 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tpch_sf_dbt_pipeline.dim_suppliers, now model.tpch_sf_dbt_pipeline.fct_orders)
+[0m13:38:47.914378 [debug] [Thread-2 (]: Began compiling node model.tpch_sf_dbt_pipeline.fct_orders
+[0m13:38:47.923013 [debug] [Thread-2 (]: Writing injected SQL for node "model.tpch_sf_dbt_pipeline.fct_orders"
+[0m13:38:47.923868 [debug] [Thread-2 (]: Began executing node model.tpch_sf_dbt_pipeline.fct_orders
+[0m13:38:47.929300 [debug] [Thread-2 (]: Writing runtime sql for node "model.tpch_sf_dbt_pipeline.fct_orders"
+[0m13:38:47.931636 [debug] [Thread-2 (]: Using snowflake connection "model.tpch_sf_dbt_pipeline.fct_orders"
+[0m13:38:47.932344 [debug] [Thread-2 (]: On model.tpch_sf_dbt_pipeline.fct_orders: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tpch_sf_dbt_pipeline", "target_name": "dev", "node_id": "model.tpch_sf_dbt_pipeline.fct_orders"} */
+create or replace transient table DBT_DB.DBT_SCH.fct_orders
+         as
+        (with orders as (
+    select * from DBT_DB.DBT_SCH.stg_orders
+),
+
+lineitems as (
+    select * from DBT_DB.DBT_SCH.stg_lineitems
+),
+
+customers as (
+    select * from DBT_DB.DBT_SCH.dim_customers
+)
+
+select
+    o.order_key,
+    o.customer_key,
+    c.customer_name,
+    c.market_segment,
+    c.nation_name as customer_nation,
+    c.region_name as customer_region,
+    o.order_status,
+    o.order_date,
+    o.order_priority,
+    o.clerk,
+    count(l.line_number) as line_item_count,
+    sum(l.quantity) as total_quantity,
+    sum(l.extended_price) as gross_amount,
+    sum(l.extended_price * (1 - l.discount)) as net_amount,
+    sum(l.extended_price * (1 - l.discount) * (1 + l.tax)) as total_amount
+from orders o
+left join lineitems l on o.order_key = l.order_key
+left join customers c on o.customer_key = c.customer_key
+group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        );
+[0m13:38:47.932945 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:38:54.500711 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 6.568 seconds
+[0m13:38:54.504248 [info ] [Thread-2 (]: 13 of 13 OK created sql table model DBT_SCH.fct_orders ......................... [[32mSUCCESS 1[0m in 6.59s]
+[0m13:38:54.505221 [debug] [Thread-2 (]: Finished running node model.tpch_sf_dbt_pipeline.fct_orders
+[0m13:38:58.036491 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 10.257 seconds
+[0m13:38:58.039874 [info ] [Thread-3 (]: 12 of 13 OK created sql table model DBT_SCH.fct_order_items .................... [[32mSUCCESS 1[0m in 10.28s]
+[0m13:38:58.040795 [debug] [Thread-3 (]: Finished running node model.tpch_sf_dbt_pipeline.fct_order_items
+[0m13:38:58.044481 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m13:38:58.045457 [debug] [Dummy-1   ]: Connection 'model.tpch_sf_dbt_pipeline.fct_order_items' was properly closed.
+[0m13:38:58.046092 [debug] [Dummy-1   ]: Connection 'model.tpch_sf_dbt_pipeline.fct_orders' was properly closed.
+[0m13:38:58.046554 [debug] [Dummy-1   ]: Connection 'model.tpch_sf_dbt_pipeline.dim_customers' was properly closed.
+[0m13:38:58.047005 [debug] [Dummy-1   ]: Connection 'model.tpch_sf_dbt_pipeline.dim_parts' was properly closed.
+[0m13:38:58.047689 [info ] [Dummy-1   ]: 
+[0m13:38:58.048233 [info ] [Dummy-1   ]: Finished running 5 table models, 8 view models in 0 hours 0 minutes and 19.21 seconds (19.21s).
+[0m13:38:58.051285 [debug] [Dummy-1   ]: Command end result
+[0m13:38:58.089364 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m13:38:58.091676 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m13:38:58.100036 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m13:38:58.100595 [info ] [Dummy-1   ]: 
+[0m13:38:58.101260 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m13:38:58.101776 [info ] [Dummy-1   ]: 
+[0m13:38:58.102320 [info ] [Dummy-1   ]: Done. PASS=13 WARN=0 ERROR=0 SKIP=0 TOTAL=13
+[0m13:38:58.104124 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 22.913528, "process_in_blocks": "0", "process_kernel_time": 1.0, "process_mem_max_rss": "502976", "process_out_blocks": "0", "process_user_time": 7.61}
+[0m13:38:58.104874 [debug] [Dummy-1   ]: Command `cli run` succeeded at 13:38:58.104574 after 22.91 seconds
+[0m13:38:58.105434 [debug] [Dummy-1   ]: Flushing usage events

@@ -1,0 +1,70 @@
+name: tpch_sales_analytics
+description: "Semantic model for TPC-H sales analytics"
+
+tables:
+  - name: orders
+    description: "Orders fact table with aggregated metrics"
+    base_table:
+      database: DBT_DB
+      schema: DBT_SCH
+      table: FCT_ORDERS
+    dimensions:
+      - name: order_key
+        synonyms: ["order id", "order number"]
+        description: "Unique identifier for orders"
+        expr: order_key
+        data_type: NUMBER
+        unique: true
+      - name: customer_name
+        synonyms: ["client name"]
+        description: "Name of the customer"
+        expr: customer_name
+        data_type: VARCHAR
+      - name: market_segment
+        synonyms: ["segment"]
+        description: "Customer market segment"
+        expr: market_segment
+        data_type: VARCHAR
+      - name: customer_region
+        synonyms: ["region"]
+        description: "Region of the customer"
+        expr: customer_region
+        data_type: VARCHAR
+      - name: order_status
+        description: "Order status"
+        expr: order_status
+        data_type: VARCHAR
+      - name: order_priority
+        description: "Priority level"
+        expr: order_priority
+        data_type: VARCHAR
+    time_dimensions:
+      - name: order_date
+        synonyms: ["date", "order placed date"]
+        description: "Date when the order was placed"
+        expr: order_date
+        data_type: DATE
+    measures:
+      - name: total_orders
+        synonyms: ["order count"]
+        description: "Total number of orders"
+        expr: COUNT(order_key)
+      - name: total_revenue
+        synonyms: ["revenue", "sales"]
+        description: "Total revenue after discounts"
+        expr: SUM(net_amount)
+      - name: average_order_value
+        synonyms: ["AOV"]
+        description: "Average order value"
+        expr: AVG(net_amount)
+
+verified_queries:
+  - name: top_customers_by_revenue
+    question: "Who are the top 10 customers by revenue?"
+    use_as_onboarding_question: true
+    sql: |
+      SELECT customer_name, SUM(net_amount) as total_revenue
+      FROM DBT_DB.DBT_SCH.FCT_ORDERS
+      GROUP BY customer_name
+      ORDER BY total_revenue DESC
+      LIMIT 10
